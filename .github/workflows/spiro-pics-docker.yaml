@@ -6,31 +6,19 @@ on:
     branches:
       - main
 
-name: spiro-pics
+name: spiro-pics-docker
 
 jobs:
-  spiro-pic:
+  spiro-pic-in-docker:
     name: save a spirograph pic
     runs-on: ubuntu-latest
+    container: rocker/tidyverse
 
     steps:
       # check out the repo
       - uses: actions/checkout@v2
 
-      - name: Install R
-        uses: r-lib/actions/setup-r@v1
-
-      - name: Install pak
-        shell: Rscript {0}
-        run: |
-          install.packages("pak", repos = "https://r-lib.github.io/p/pak/dev/")
-
-      - name: Install dependencies
-        shell: Rscript {0}
-        run: |
-          pak::pkg_install("ggplot2")
-          pak::pkg_install("tibble")
-
+      # Run our spirograph script to generate a picture
       - name: Generate spirograph image
         run: Rscript spirograph.R
 
