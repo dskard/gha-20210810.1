@@ -28,7 +28,6 @@ jobs:
       - name: Install dependencies
         shell: Rscript {0}
         run: |
-          pak::local_install_dev_deps(upgrade = TRUE)
           pak::pkg_install("ggplot2")
           pak::pkg_install("tibble")
 
