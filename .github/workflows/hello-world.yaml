@@ -41,3 +41,17 @@ jobs:
         shell: bash
         run: |
           echo "hello world!"
+
+  hello-windows:
+    name: hello windows
+    # Which operation system does it run on?
+    runs-on: windows-latest
+
+    # Define the execution steps...
+    steps:
+      # Step #1
+      # Print "hello world!" from within the bash shell
+      - name: Hello World!
+        shell: bash
+        run: |
+          echo "hello world!"
