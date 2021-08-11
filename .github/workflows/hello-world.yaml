@@ -14,7 +14,8 @@ name: Echo
 
 
 jobs:
-  hello:
+  hello-macOS:
+    name: hello macOS
     # Which operation system does it run on?
     runs-on: macOS-latest
 
@@ -27,3 +28,16 @@ jobs:
         run: |
           echo "hello world!"
 
+  hello-ubuntu:
+    name: hello ubuntu
+    # Which operation system does it run on?
+    runs-on: ubuntu-latest
+
+    # Define the execution steps...
+    steps:
+      # Step #1
+      # Print "hello world!" from within the bash shell
+      - name: Hello World!
+        shell: bash
+        run: |
+          echo "hello world!"
